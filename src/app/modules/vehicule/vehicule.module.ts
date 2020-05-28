@@ -17,8 +17,4 @@ import { VoitureComponent } from './voiture/voiture.component';
   ]
 })
 export class VehiculeModule {
-
-  constructor() {
-    console.log('vehicule module');
-  }
 }

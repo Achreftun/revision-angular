@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Personne } from 'src/app/interfaces/personne';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { PersonneService } from '../services/personne.service';
 
 @Component({
   selector: 'app-personne',
@@ -11,7 +12,6 @@ export class PersonneComponent implements OnInit {
   personnes: Array<Personne> = [];
 
   personneForm = this.fb.group({
-    id: [],
     nom: ['', [Validators.required, Validators.minLength(2)]],
     prenom: ['', Validators.required],
     adresses: this.fb.array([
@@ -22,15 +22,28 @@ export class PersonneComponent implements OnInit {
       })
     ])
   });
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private personneService: PersonneService) {
+  }
   get adresses() {
     return this.personneForm.get('adresses') as FormArray;
   }
   ngOnInit(): void {
+    this.afficherPersonnes();
   }
   ajouterPersonne() {
-    this.personnes.push(this.personneForm.value);
+    this.personneService.addPersonne(this.personneForm.value).subscribe(
+      () => {
+        this.afficherPersonnes();
+      }
+    );
     this.personneForm.reset();
+  }
+ supprimerPersonne(id: number) {
+    this.personneService.deletePersonne(id).subscribe(
+      () => {
+        this.afficherPersonnes();
+      }
+    );
   }
   ajouterAdresse() {
     this.adresses.push(this.fb.group({
@@ -39,5 +52,11 @@ export class PersonneComponent implements OnInit {
       ville: ['', Validators.required],
     }));
   }
-
+  afficherPersonnes() {
+    this.personneService.getAllPersonnes().subscribe(
+      data => {
+        this.personnes = data;
+      }
+    );
+  }
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ObservableComponent } from './observable/observable.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
@@ -23,6 +23,7 @@ import { SecondComponent } from './second/second.component';
 import { EnfantComponent } from './enfant/enfant.component';
 import { FatherComponent } from './father/father.component';
 import { PersonneComponent } from './personne/personne.component';
+import { EditPersonneComponent } from './edit-personne/edit-personne.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +45,16 @@ import { PersonneComponent } from './personne/personne.component';
     SecondComponent,
     EnfantComponent,
     FatherComponent,
-    PersonneComponent
+    PersonneComponent,
+    EditPersonneComponent
   ],
   imports: [
     CommonModule,
     CoursRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    VehiculeModule
+    VehiculeModule,
+    HttpClientModule
   ]
 })
 export class CoursModule { }

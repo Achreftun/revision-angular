@@ -13,6 +13,8 @@ import { PanierComponent } from './panier/panier.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { FatherComponent } from './father/father.component';
+import { PersonneComponent } from './personne/personne.component';
+import { EditPersonneComponent } from './edit-personne/edit-personne.component';
 
 const routes: Routes = [
     { path: 'tableau/:id', component: TableauComponent },
@@ -26,8 +28,8 @@ const routes: Routes = [
     { path: 'list', component: ListComponent },
     { path: 'parent', component: ParentComponent },
     { path: 'panier', component: PanierComponent },
-    { path: 'first', component: FirstComponent },
-    { path: 'second', component: SecondComponent },
+    { path: 'editpersonne/:id', component: EditPersonneComponent },
+    { path: 'personne', component: PersonneComponent },
     { path: 'father', component: FatherComponent },
 ];
 

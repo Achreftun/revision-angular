@@ -1,5 +1,5 @@
-<h2>Formulaire réactif</h2>
-<form #monForm=ngForm (submit)=ajouterPersonne() [formGroup]="personneForm">
+<h2>Modifier la personne</h2>
+<form #monForm=ngForm (submit)=modifierPersonne() [formGroup]="personneForm">
     <div>
         Nom :
         <input type="text" formControlName="nom">
@@ -27,21 +27,9 @@
                     Ville :
                     <input type="text" formControlName="ville">
                 </div>
+                <button type='button' (click)="supprimerAdresse(i)">Supprimer</button>
             </div>
         </div>
     </div>
     <button [disabled]=!monForm.valid>cliquer</button>
 </form>
-<h2>Liste de personnes</h2>
-<ul>
-    <li *ngFor="let item of personnes">
-        {{ item.prenom }} {{ item.nom }} 
-        <button (click)="supprimerPersonne(item.id)">Supprimer</button>
-        <a [routerLink]='["/cours/editpersonne",item.id]'>Modifier</a>
-        <ul>
-            <li *ngFor="let adresse of item.adresses">
-                {{ adresse.rue }} {{ adresse.ville }} {{ adresse.codePostal }}
-            </li>
-        </ul>
-    </li>
-</ul>
