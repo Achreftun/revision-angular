@@ -1,0 +1,6 @@
+Nom: <input type=text [(ngModel)]=nom>
+<button (click)=ajouter()>Ajouter</button>
+
+<h3> Moyenne de mes enfants {{ moyenne }} </h3>
+<app-child *ngFor="let name of noms" [nom]="name" (message)="computeAvg($event)">
+</app-child>

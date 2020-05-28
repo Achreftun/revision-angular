@@ -1,0 +1,15 @@
+<h2>Ajoutez des enfants</h2>
+<form #monForm=ngForm (submit)=ajouter()>
+    Nom: <input type=text [(ngModel)]=nom name=nom>
+    Prénom: <input type=text [(ngModel)]=prenom name=prenom>
+    <button [disabled]=!monForm.valid>Ajouter</button>
+</form>
+
+<h2>Les enfants</h2>
+<ul>
+    <ng-container *ngFor='let nom of noms; index as i;'>
+        <app-fils [name]='nom'> <!-- chez l'enfant on le récupère avec @input-->
+            {{ prenoms[i] }} <!-- chez l'enfant on le récupère avec ng-content-->
+        </app-fils>
+    </ng-container>
+</ul>

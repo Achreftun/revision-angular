@@ -1,0 +1,4 @@
+<h2>Bienvenue dans afc-php.commerce.com </h2>
+<h4>Nombre d'articles dans le panier : {{ nombre }} articles</h4>
+<h4>Total : {{ total }} €</h4>
+<app-article *ngFor='let article of articles' [article]='article' (message)='afficherTotal($event)'></app-article>

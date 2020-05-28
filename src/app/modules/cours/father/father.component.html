@@ -1,0 +1,9 @@
+<h2>Tchatche</h2>
+Pseudo : <input type=text [(ngModel)]=nom>
+<button (click)='participer()'>Participer</button>
+
+<div id=container>
+    <div *ngFor="let elt of noms">
+        <app-enfant [nom]='elt'></app-enfant>
+    </div>
+</div>

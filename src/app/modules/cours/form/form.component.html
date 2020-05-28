@@ -1,0 +1,52 @@
+<h2>Formulaire réactif</h2>
+<form #monForm=ngForm (submit)=afficherTout() [formGroup]="personneForm">
+    <div>
+        Identifiant :
+        <input type="number" formControlName="id" >
+    </div>
+    <div>
+        Nom :
+        <input type="text" formControlName="nom">
+    </div>
+    <div>
+        Prénom :
+        <input type="text" formControlName="prenom">
+    </div>
+    <div formArrayName="adresses">
+        <h3>Adresses </h3>
+        <button type=button (click)="ajouterAdresse()">
+            Ajouter adresse
+        </button>
+        <div *ngFor="let adresse of adresses.controls; let i=index">
+            <div [formGroupName]="i">
+                <div>
+                    Rue :
+                    <input type="text" formControlName="rue">
+                </div>
+                <div>
+                    Code postal :
+                    <input type="text" formControlName="codePostal">
+                </div>
+                <div>
+                    Ville :
+                    <input type="text" formControlName="ville">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button [disabled]=!monForm.valid>cliquer</button>
+</form>
+<h2>Liste de personnes</h2>
+<ul>
+    <li *ngFor="let item of personnes">
+        {{ item.prenom }} {{ item.nom }} 
+        <ul>
+            <li *ngFor="let adresse of item.adresses">
+                {{ adresse.rue }} {{ adresse.ville }} {{ adresse.codePostal }}
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<app-camion></app-camion>
+

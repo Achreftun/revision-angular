@@ -1,0 +1,9 @@
+<h3>{{ nom }} </h3>
+Votre message : <input type=text [(ngModel)]=msg>
+<button (click)='envoyer()'>Envoyer</button>
+<h3>Messages</h3>
+<ul>
+    <li *ngFor="let element of messages">
+        {{ element.nom }} : {{ element.message }}
+    </li>
+</ul>

@@ -1,0 +1,6 @@
+<ul>
+    <li>{{ article.description }} </li>
+    <li>{{ article.prixUnitaire }} € </li>
+    <li><input type=number [(ngModel)]=quantite> </li>
+    <li><button (click)=ajouter() [disabled]=etat>Ajouter au panier</button></li>
+</ul>
