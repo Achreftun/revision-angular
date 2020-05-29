@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Personne } from 'src/app/interfaces/personne';
 import { map } from 'rxjs/operators';
 
@@ -9,11 +9,16 @@ import { map } from 'rxjs/operators';
 export class PersonneService {
   private url = 'http://localhost:8000/api/personnes';
 
-  constructor(private http: HttpClient) { }
+  headers: HttpHeaders;
+
+  constructor(private http: HttpClient) {
+    const token = localStorage.getItem('token');
+    this.headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+  }
 
 
   getAllPersonnes() {
-    return this.http.get<Array<Personne>>(this.url).pipe(map(elt => elt['hydra:member']));
+    return this.http.get<Array<Personne>>(this.url, { headers: this.headers }).pipe(map(elt => elt['hydra:member']));
   }
   getPersonne(id: number) {
     return this.http.get<Personne>(this.url + '/' + id);

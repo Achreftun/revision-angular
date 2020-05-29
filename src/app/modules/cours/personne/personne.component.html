@@ -41,6 +41,7 @@
         <ul>
             <li *ngFor="let adresse of item.adresses">
                 {{ adresse.rue }} {{ adresse.ville }} {{ adresse.codePostal }}
+                <button (click)="supprimerAdresse(adresse.id)">Supprimer</button>
             </li>
         </ul>
     </li>

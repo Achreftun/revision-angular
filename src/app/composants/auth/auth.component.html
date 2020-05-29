@@ -1,0 +1,12 @@
+<h3>Authentification</h3>
+<form #authForm=ngForm (submit)=login()>
+    <div>
+        Email : <input type=email required [(ngModel)]=user.email name=email>
+    </div>
+    <div>
+        Mot de passe : <input type=password required [(ngModel)]=user.password name=password>
+    </div>
+    <div>
+       <button [disabled]=!authForm.valid>Se connecter</button>
+    </div>
+</form>

@@ -10,8 +10,6 @@ import { PereComponent } from './pere/pere.component';
 import { ListComponent } from './list/list.component';
 import { ParentComponent } from './parent/parent.component';
 import { PanierComponent } from './panier/panier.component';
-import { FirstComponent } from './first/first.component';
-import { SecondComponent } from './second/second.component';
 import { FatherComponent } from './father/father.component';
 import { PersonneComponent } from './personne/personne.component';
 import { EditPersonneComponent } from './edit-personne/edit-personne.component';

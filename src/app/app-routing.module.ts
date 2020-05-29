@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthComponent } from './composants/auth/auth.component';
 
 const routes: Routes = [
+  { path: 'login', component: AuthComponent },
   {
     path: 'vehicule',
     loadChildren: () => import('./modules/vehicule/vehicule.module').then(m => m.VehiculeModule)
