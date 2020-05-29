@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Personne } from './interfaces/personne';
 import { Router } from '@angular/router';
+import { User } from './interfaces/user';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +11,15 @@ import { Router } from '@angular/router';
 export class AppComponent {
 
   title = 'revision-angular';
-  tableau = [-5, 0, 10, 18];
-  nom = 'wick';
-  couleur = 'blue';
-  personne: Personne = {
-    nom: 'wick',
-    prenom: 'john',
-    id: 1
-  };
-  personnes: Array<Personne> = [
-    { nom: 'wick', prenom: 'john', id: 1 },
-    { nom: 'wayne', prenom: 'alan', id: 2 },
-    { nom: 'travolta', prenom: 'mike', id: 3 },
-    { nom: 'dalton', prenom: 'jack', id: 4 },
-  ];
+  user: User;
   constructor(private router: Router) { }
   getToken() {
-    return localStorage.getItem('token') != null ? true : false;
+    this.user = JSON.parse(localStorage.getItem('user'));
+    return this.user != null ? true : false;
   }
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigateByUrl('/login');
   }
 }

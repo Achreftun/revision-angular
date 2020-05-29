@@ -1,0 +1,18 @@
+<h3>Inscription</h3>
+<form #authForm=ngForm (submit)=inscription()>
+    <div>
+        Nom : <input type=nom required [(ngModel)]=user.nom name=nom>
+    </div>
+    <div>
+        Prénom : <input type=prenom required [(ngModel)]=user.prenom name=prenom>
+    </div>
+    <div>
+        Email : <input type=email required [(ngModel)]=user.email name=email>
+    </div>
+    <div>
+        Mot de passe : <input type=password required [(ngModel)]=user.password name=password>
+    </div>
+    <div>
+        <button [disabled]=!authForm.valid>S'inscrire</button>
+    </div>
+</form>

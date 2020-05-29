@@ -1,55 +1,7 @@
 <h1>Bienvenue dans mon application {{ title }} </h1>
 <ng-container *ngIf='getToken() == true'>
+  Bonjour {{ user.prenom }} {{ user.nom }} 
   <app-menu></app-menu>
   <button (click)='logout()'>Déconnexion</button>
 </ng-container>
 <router-outlet></router-outlet>
-<!-- <p [ngClass]="nom == 'wick' ? 'rouge' : 'bleu'">
-  {{ nom }}
-</p>
-<ul>
-  <ng-container *ngFor='let elt of tableau;  let i=index'>
-    <li *ngIf="elt > 0; else si">
-      {{i }} : {{ elt }} est positif
-    </li>
-    <ng-template #si>
-      <li *ngIf=' elt < 0; else sinon'>
-        {{i }} : {{ elt }} est négatif
-      </li>
-      <ng-template #sinon>
-        <li>
-          {{i }} : {{ elt }} est égal à zéro
-        </li>
-      </ng-template>
-    </ng-template>
-  </ng-container>
-</ul>
-<ul>
-  <ng-container *ngFor='let personne of personnes;  let isEven=even'>
-    <li *ngIf="isEven; else si">
-      {{ personne.nom }}
-    </li>
-    <ng-template #si>
-      <li>
-        {{ personne.prenom }}
-      </li>
-    </ng-template>
-  </ng-container>
-</ul>
-
-<ul>
-  <ng-container *ngFor="let elt of tableau">
-    <ng-container [ngSwitch]="true">
-      <li *ngSwitchCase="elt > 0">{{ elt }} est positif</li>
-      <li *ngSwitchCase="elt < 0">{{ elt }} est négatif</li>
-      <li *ngSwitchDefault>{{ elt }} est nul</li>
-    </ng-container>
-  </ng-container>
-</ul>
-<ul>
-  <ng-container *ngFor="let elt of tableau">
-    <li [ngClass]="{'rouge': elt > 0, 'bleu': elt < 0}">
-      {{ elt }}
-    </li>
-  </ng-container>
-</ul> -->

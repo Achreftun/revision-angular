@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './composants/auth/auth.component';
 import { AuthGuard } from './guards/auth.guard';
+import { InscriptionComponent } from './composants/inscription/inscription.component';
 
 const routes: Routes = [
   { path: 'login', component: AuthComponent },
+  { path: 'inscription', component: InscriptionComponent },
   {
     path: '', canActivate: [AuthGuard], children: [
       {

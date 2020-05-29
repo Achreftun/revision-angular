@@ -8,12 +8,14 @@ import { AuthComponent } from './composants/auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { InscriptionComponent } from './composants/inscription/inscription.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     AuthComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule, // = CommonModule (directives, pipes....) + nécessaire pour exécuter l'appli dans le navigateur
