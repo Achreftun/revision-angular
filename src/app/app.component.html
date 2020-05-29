@@ -1,6 +1,8 @@
 <h1>Bienvenue dans mon application {{ title }} </h1>
-<app-menu></app-menu>
-
+<ng-container *ngIf='getToken() == true'>
+  <app-menu></app-menu>
+  <button (click)='logout()'>Déconnexion</button>
+</ng-container>
 <router-outlet></router-outlet>
 <!-- <p [ngClass]="nom == 'wick' ? 'rouge' : 'bleu'">
   {{ nom }}

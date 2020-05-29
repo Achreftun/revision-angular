@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './composants/menu/menu.component';
 import { AuthComponent } from './composants/auth/auth.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [], // services utilisés par ce module
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }], // services utilisés par ce module
   bootstrap: [AppComponent] // le composant de démarrage de ce module
 })
 export class AppModule { }

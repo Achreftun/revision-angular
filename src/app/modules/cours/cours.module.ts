@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ObservableComponent } from './observable/observable.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
@@ -24,6 +24,7 @@ import { EnfantComponent } from './enfant/enfant.component';
 import { FatherComponent } from './father/father.component';
 import { PersonneComponent } from './personne/personne.component';
 import { EditPersonneComponent } from './edit-personne/edit-personne.component';
+import { AuthInterceptor } from 'src/app/services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { EditPersonneComponent } from './edit-personne/edit-personne.component';
     ReactiveFormsModule,
     VehiculeModule,
     HttpClientModule
-  ]
+  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]
 })
 export class CoursModule { }

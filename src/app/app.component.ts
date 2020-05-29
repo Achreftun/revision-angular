@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Personne } from './interfaces/personne';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Personne } from './interfaces/personne';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'revision-angular';
   tableau = [-5, 0, 10, 18];
   nom = 'wick';
@@ -22,4 +24,12 @@ export class AppComponent {
     { nom: 'travolta', prenom: 'mike', id: 3 },
     { nom: 'dalton', prenom: 'jack', id: 4 },
   ];
+  constructor(private router: Router) { }
+  getToken() {
+    return localStorage.getItem('token') != null ? true : false;
+  }
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
+  }
 }
